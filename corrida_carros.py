@@ -2,6 +2,7 @@ from termcolor import colored
 import os
 import random
 import json
+import bem_vindo
 
 # Cabeçalho de boas vindas
 def bem_vindo_carros():
@@ -84,6 +85,19 @@ def jogo_carros(saldo, aposta):
         print(f"A velocidade do seu carro era {velocidade_jogador} km/h, a do segundo carro era {velocidade1} km/h, e a do terceiro carro era {velocidade2} km/h")
         continuar_jogo(saldo)
         
+def escolha_outro_jogo():
+    escolha = input("Deseja escolher outro jogo? ")
+    escolha = escolha.lower()
+    
+    if(escolha == "sim"):
+        bem_vindo.bem_vindo()
+    elif(escolha == "nao"):
+        os.system("cls")
+        print("Obrigado por jogar")
+    else:
+        print("Opção invalida, por favor responda com sim ou nao")
+        escolha_outro_jogo()
+        
 # Oferece a opção de continuar jogando ao jogador
 def continuar_jogo(saldo):
     escolha_continuar = input("Deseja continuar jogando? ")
@@ -104,9 +118,8 @@ def continuar_jogo(saldo):
     elif(escolha_continuar == "nao"):
         os.system("cls")
         print("Obrigado por jogar")
-        
+        escolha_outro_jogo()
+           
 #def inserir_no_json(nome, saldo):
 #    dif_dados = {"nome": nome, "saldo": saldo}
-
-bem_vindo_carros()
     

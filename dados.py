@@ -1,12 +1,13 @@
 import random
 import os
 from termcolor import colored
+import bem_vindo
 
 # Cabeçalho de boas vindas
 def bem_vindo_dados():
     os.system("cls")
     print("")
-    print(colored("BEM VINDO A CORRIDA DE DADOS", "blue", attrs=["bold"]), end="\n\n")
+    print(colored("BEM VINDO AO JOGO DE DADOS", "blue", attrs=["bold"]), end="\n\n")
     menu_escolha_dados()
     
 # Menu de escolha principal
@@ -69,12 +70,25 @@ def jogo_dados(saldo, aposta):
     if(chute == lados):
         saldo = saldo + aposta
         print("Você acertou!!! Seu saldo agora é", saldo, "reais")
-        continuar_jogo(saldo, aposta)
+        continuar_jogo(saldo)
     else:
         saldo = saldo - aposta
         print("Você errou!!! O dado caiu no lado", lados) 
         print("Seu saldo agora é", saldo, "reais")
-        continuar_jogo(saldo, aposta)
+        continuar_jogo(saldo)
+        
+def escolha_outro_jogo():
+    escolha = input("Deseja escolher outro jogo? ")
+    escolha = escolha.lower()
+    
+    if(escolha == "sim"):
+        bem_vindo.bem_vindo()
+    elif(escolha == "nao"):
+        os.system("cls")
+        print("Obrigado por jogar")
+    else:
+        print("Opção invalida, por favor responda com sim ou nao")
+        escolha_outro_jogo()
 
 def continuar_jogo(saldo):
     escolha_continuar = input("Deseja continuar jogando? ")
@@ -95,5 +109,4 @@ def continuar_jogo(saldo):
     elif(escolha_continuar == "nao"):
         os.system("cls")
         print("Obrigado por jogar")
-
-bem_vindo_dados()
+        escolha_outro_jogo()

@@ -1,8 +1,10 @@
 from termcolor import colored
 import os
+import corrida_carros
+import dados
 
 def bem_vindo():
-    print("")
+    os.system("cls")
     print(colored("BEM VINDO A CADA DE APOSTAS", "blue", attrs=["bold"]), end="\n\n")
     print(colored("Escolha onde quer apostar:", attrs=["bold"]), end="\n\n")
     menu_jogos()
@@ -19,9 +21,11 @@ def escolha_de_jogos():
     if(escolha_jogo == 1):
         os.system("cls")
         print("Apostando nos carros")
+        corrida_carros.bem_vindo_carros()
     elif(escolha_jogo == 2):
         os.system("cls")
         print("Apostando nos dados")
+        dados.bem_vindo_dados()
     elif(escolha_jogo == 3):
         os.system("cls")
         print("Apostando na roleta")
@@ -30,4 +34,5 @@ def escolha_de_jogos():
         print("Favor escolher uma opção valida!")
         menu_jogos()
 
-bem_vindo()
+if(__name__ == "__main__"):
+    bem_vindo()
