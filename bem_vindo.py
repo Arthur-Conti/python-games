@@ -2,6 +2,7 @@ from termcolor import colored
 import os
 import corrida_carros
 import dados
+import roleta
 
 def bem_vindo():
     os.system("cls")
@@ -29,6 +30,7 @@ def escolha_de_jogos():
     elif(escolha_jogo == 3):
         os.system("cls")
         print("Apostando na roleta")
+        roleta.bem_vindo_roleta()
     else:
         os.system("cls")
         print("Favor escolher uma opção valida!")
